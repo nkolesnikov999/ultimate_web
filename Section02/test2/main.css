@@ -1,0 +1,87 @@
+/* Backgrounds */
+body {
+    background-image: url(zebra.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.borderImg {
+    border: 2px solid red;
+}
+
+
+/* Colours */
+.container {
+    background: linear-gradient(to left, #00ccff, #b3f0ff);
+    box-shadow: 3px 5px 3px black;
+}
+
+/* Specificity */
+/* most | Style > ID > Class > Element | least */
+html body div.container h1#foo {
+/* 0-style 1-id 1-class 4-element  */
+    color: blue;
+}
+/* used important NO RECOMEND */
+h1 {
+    color: orange !important; 
+}
+
+[id="foo"] {
+    color: cian;
+}
+
+.container h1 {
+    color: green;
+}
+
+div h1 {
+    color: red;
+}
+
+/* Grouping */
+h1, h3, .class, #id {
+    color: #ffffff;
+    text-shadow: 2px 2px 5px black;
+    line-height: 2rem;
+    font-family: sans-serif;
+}
+
+h2 {
+    color: rgb(0, 204, 255);
+    text-shadow: 1px 1px 3px darkblue;
+}
+
+/* Combinators */
+
+ul li {
+    color: white;
+    font-size: 20px;
+}
+
+ul > li {
+    color: yellow;
+}
+
+
+
+/* Test */
+div.section .holla p {
+    color: mediumblue;
+}
+    
+div p.yay {
+    color: red;
+}
+
+.section {
+  background: red; /* For browsers that do not support gradients */
+  /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(left,red,orange,yellow,green,blue,indigo,violet);
+  /* For Opera 11.1 to 12.0 */
+  background: -o-linear-gradient(left,red,orange,yellow,green,blue,indigo,violet);
+  /* For Fx 3.6 to 15 */
+  background: -moz-linear-gradient(left,red,orange,yellow,green,blue,indigo,violet);
+  /* Standard syntax */
+  background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); 
+}
