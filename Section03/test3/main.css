@@ -3,7 +3,7 @@ body {
 /*    background-repeat: no-repeat;*/
 /*    background-size: cover;*/
     background-color: #444;
-    text-align: center;
+/*    text-align: center;*/
 }
 
 h1 {
@@ -39,8 +39,21 @@ a {
     text-transform: uppercase;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    padding: 5px;
+    opacity: 0.5;
+    display: block;
+    margin: auto;
+}
+
 .borderImg {
-    border: 2px solid red;
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ddd;
+    padding: 5px
 }
 
 ul li {
