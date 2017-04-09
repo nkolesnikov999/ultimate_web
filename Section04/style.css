@@ -27,6 +27,11 @@ p {
     line-height: 1.2;
 }
 
+article p {
+    font-size: 35px;
+    padding: 20px;
+}
+
 .container {
     width: 100%;
     margin: auto;
@@ -53,7 +58,7 @@ p {
 .col-4 {width: 33.33%;}
 .col-5 {width: 41.66%;}
 .col-6 {width: 50%;}
-.col-7 {width: 8.33%;}
+.col-7 {width: 58.33%;}
 .col-8 {width: 66.66%;}
 .col-9 {width: 75%;}
 .col-10 {width: 83.33%;}
@@ -120,6 +125,13 @@ div.box {
     background-color: #fff;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15),
         0 2px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+div.slopeIcon img{
+    display: block;
+    margin: auto;
+    box-shadow: -2px/*H*/ -2px/*V*/ 20px/*B*/ 2px/*S*/ rgba(0, 0, 0, 0.15), 2px 2px 17px 2px rgba(0, 0, 0, 1);
+
 }
 
 button.LearnMore {
@@ -208,7 +220,13 @@ input[type="text"] {
         font-size: 50px;
     }
     
+    article p {
+        font-size: 25px; ;
+    }
+    
+    .col-7,
     .col-6,
+    .col-5,
     .col-4 {
         width: 100%;
         margin: 0;
@@ -217,6 +235,14 @@ input[type="text"] {
     div.box {
         padding: 5px;
         display: block;
+    }
+    
+    div.slopeIcon {
+        margin: 10px;
+    }
+    
+    div.slopeIcon img {
+        width: 100%;
     }
     
     div.leftSide-col,
