@@ -22,3 +22,10 @@ for(var i = 0; i < 100; i++) {
         console.log(i);
     }
 }
+
+var student = {
+    name: "John",
+    subname: "Parker",
+    age: 7
+};
+console.log(student);

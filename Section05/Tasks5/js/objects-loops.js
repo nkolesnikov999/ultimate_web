@@ -4,9 +4,9 @@ var student0 = {
    age: 8
 };
 
-console.log(student0.greeting());
+//console.log(student0.greeting());
 
-Creates a new empty object
+//Creates a new empty object
 var student1 = new Object();
 student1.firstName = "John";
 student1.lastName = "Parker";
@@ -18,6 +18,12 @@ student2.lastName = "Bobo";
 student2.age = 5;
 
 var students = [];
+
+
+//students.push(student0);
+//students.push(student1);
+//students.push(student2);
+
 
 function Student(first, last, age) {
     this.firstName = first;
@@ -39,13 +45,11 @@ for (var key in student) {
     console.log(student[key]);
 }
 
+console.log(students);
+
 var s1 = new Student("Jenny","Laga",5);
 console.log(s1);
 console.log(s1.greeting());
-
-students.push(student0);
-students.push(student1);
-students.push(student2);
 
 for (var index = 0; index < students.length; index++) {
    var student = students[index];
