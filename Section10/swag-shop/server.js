@@ -23,10 +23,63 @@ app.post('/product', function(request, response) {
     });
 }); 
 
+app.get('/product', function(request, response) {
+    Product.find({}, function(err, findProducts) {
+        if (err) {
+            response.status(500).send({error:"Could not fetch products"}); 
+        } else {
+            response.status(200).send(findProducts);
+        }
+    });
+});
+
 app.get('/', function(request, response) {
     response.status(200).send("Good day");
+});
+
+app.post('/wishlist', function(request, response) {
+    var wishList = new WishList();
+    wishList.title = request.body.title;
+    
+    wishList.save(function(err, newWishList) {
+        if (err) {
+            response.status(500).send({error:"Could not create wishlist"}); 
+        } else {
+            response.status(200).send(newWishList);
+        }
+    });
+});
+
+app.get('/wishlist', function(request, response) {
+    WishList.find({}).populate({path:'products',model:'Product'}).exec(function(err, wishlists) {
+        if (err) {
+            response.status(500).send({error:"Could not fetch wishlist"}); 
+        } else {
+            response.status(200).send(wishlists);
+        }
+    });
+});
+
+app.put('/wishlist/product/add', function(request, response) {
+    Product.findOne({_id: request.body.productId}, function(err, product) {
+        if (err) {
+            response.status(500).send({error:"Could not add item to wishlist"}); 
+        } else {
+            WishList.update({_id:request.body.wishListId}, {$addToSet:{products: product._id}}, function(err, wishlist) {
+                if (err) {
+                    response.status(500).send({error:"Could not add item to wishlist"}); 
+                } else {
+                    response.send(wishlist);
+                }
+            });
+        }
+    });
 });
 
 app.listen(3000, function() {
     console.log("Swag Shop API running on port 3000...");
 });
+
+
+
+
