@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+//Components
 import Product from '../product/product';
+import WishList from '../wishlist/wishlist';
+
+//Services
 import HttpService from '../services/http-service';
 
 const http = new HttpService();
@@ -31,9 +36,9 @@ class App extends Component {
     
     productList = () => {
         const list = this.state.products.map((product) => 
-            <div className="col-lg-4" key={product._id}>
-                <Product title={product.title} price={product.price} imgUrl={product.imgUrl}/>
-            </div>
+                <div className="col-sm-4" key={product._id}>
+                    <Product title={product.title} price={product.price} imgUrl={product.imgUrl}/>
+                </div>
         );
         
         return (list);
@@ -46,9 +51,16 @@ class App extends Component {
                     <img src={logo} className="App-logo" alt="logo" />
                     <h2>Welcome to The Swag Shop</h2>
                 </div>
-                <div className="container App-main">
+                <div className="container-fluid App-main">
                     <div className="row">
-                        {this.productList()}
+                        <div className="col-sm-8">
+                            <div className="row">
+                                {this.productList()}
+                            </div>
+                        </div>
+                        <div className="col-sm-4">
+                            <WishList />
+                        </div>
                     </div>
                     
                 </div>
