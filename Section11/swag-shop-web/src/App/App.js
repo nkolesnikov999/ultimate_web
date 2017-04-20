@@ -11,20 +11,33 @@ class App extends Component {
     constructor(props) {
         super(props);
         
+        this.state = {products:[]};
+        
         //Bind functions
         this.loadData = this.loadData.bind(this);
+        this.productList = this.productList.bind(this);
         
         this.loadData();
     }  
     
     loadData = () => {
-        http.getProducts().then(products => {
-            console.log(products);
+        var self = this;
+        http.getProducts().then(data => {
+            self.setState({products: data});
         }, err => {
             console.log(err);
         })
     }
     
+    productList = () => {
+        const list = this.state.products.map((product) => 
+            <div className="col-lg-4" key={product._id}>
+                <Product title={product.title} price={product.price} imgUrl={product.imgUrl}/>
+            </div>
+        );
+        
+        return (list);
+    }
     
     render() {
         return (
@@ -35,9 +48,7 @@ class App extends Component {
                 </div>
                 <div className="container App-main">
                     <div className="row">
-                        <Product className="col-sm-4" price="4.23" title="Cool Toy Gun" imgUrl="https://is.alicdn.com/img/pb/762/913/379/379913762_774.jpg"/> 
-                        <Product className="col-sm-4" price="4.23" title="Cool Toy Gun" imgUrl="https://is.alicdn.com/img/pb/762/913/379/379913762_774.jpg"/> 
-                        <Product className="col-sm-4" price="4.23" title="Cool Toy Gun" imgUrl="https://is.alicdn.com/img/pb/762/913/379/379913762_774.jpg"/> 
+                        {this.productList()}
                     </div>
                     
                 </div>
