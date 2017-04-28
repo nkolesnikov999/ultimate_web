@@ -1,4 +1,4 @@
-### Udemy cources
+### Udemy courses
 
 Ultimate Web Development
 
